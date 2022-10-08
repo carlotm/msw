@@ -1,5 +1,18 @@
 import Config
 
+database_url =
+  System.get_env("DATABASE_URL") ||
+    raise """
+    environment variable DATABASE_URL is missing.
+    For example: postgresql://USER:PASS@HOST/DATABASE
+    """
+
+config :msw, Msw.Repo,
+  url: database_url,
+  stacktrace: true,
+  show_sensitive_data_on_connection_error: true,
+  pool_size: 10
+
 # For development, we disable any cache and enable
 # debugging and code reloading.
 #
