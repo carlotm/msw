@@ -1,4 +1,4 @@
 <section class="MainMenu">
   <%= link "Browse the episodes killers", to: Routes.live_path(MswWeb.Endpoint, MswWeb.EpisodesLive) %>
-  <%= link "Guess the killer!", to: "/" %>
+  <%= link "Guess the killer!", to: Routes.live_path(MswWeb.Endpoint, MswWeb.GuessLive) %>
 </section>

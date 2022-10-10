@@ -13,6 +13,10 @@ defmodule Msw.Episodes do
     all_episodes() |> Repo.all()
   end
 
+  def random do
+    all_episodes() |> Repo.all() |> Enum.take_random(1) |> hd()
+  end
+
   def by_season(season_n) do
     case from(s in Season, where: s.number == ^season_n) |> Repo.one() do
       nil ->

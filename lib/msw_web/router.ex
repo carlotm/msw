@@ -15,5 +15,6 @@ defmodule MswWeb.Router do
 
     get "/", PageController, :index
     live "/episodes", EpisodesLive
+    live "/guess", GuessLive
   end
 end

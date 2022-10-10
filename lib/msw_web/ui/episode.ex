@@ -1,11 +1,13 @@
 defmodule MswWeb.UI.EpisodeCard do
   use MswWeb, :live_component
 
-  def render(%{episode: episode, killer: killer} = assigns) do
+  def render(%{episode: episode} = assigns) do
     episode_id = "s#{episode.season.number}e#{episode.number}"
     bg_url = Routes.static_path(MswWeb.Endpoint, "/images/covers/#{episode.poster}")
     bg_style = "background-image: url(#{bg_url});"
+    killer = Map.get(assigns, :killer, nil)
     killer_revealed = killer != nil and episode.id == killer.episode_id
+    revealable = Map.get(assigns, :revealable, true)
 
     episode_class =
       case killer_revealed do
@@ -36,22 +38,26 @@ defmodule MswWeb.UI.EpisodeCard do
           <p>Season <%= @episode.season.number %></p>
           <p>Episode <%= @episode.number %></p>
         </footer>
-        <aside class="Episode-cta">
-          <button phx-click="reveal" value={@episode.id}>Reveal Killer</button>
-        </aside>
-      </div>
-      <div class="Episode-back Episode-killer">
-        <%= if killer_revealed do %>
-          <img
-            src={"data:image/jpeg;base64,#{@killer.picture64}"}
-            title={@killer.name}
-            alt={@killer.name}
-            class="Episode-killer_image"
-          />
-          <p class="Episode-killer_name"><%= @killer.name %></p>
-          <button class="Episode-killer_unreveal" phx-click="unreveal">hide</button>
+        <%= if revealable do %>
+          <aside class="Episode-cta">
+            <button phx-click="reveal" value={@episode.id}>Reveal Killer</button>
+          </aside>
         <% end %>
       </div>
+      <%= if revealable do %>
+        <div class="Episode-back Episode-killer">
+          <%= if killer_revealed do %>
+            <img
+              src={"data:image/jpeg;base64,#{@killer.picture64}"}
+              title={@killer.name}
+              alt={@killer.name}
+              class="Episode-killer_image"
+            />
+            <p class="Episode-killer_name"><%= @killer.name %></p>
+            <button class="Episode-killer_unreveal" phx-click="unreveal">hide</button>
+          <% end %>
+        </div>
+      <% end %>
     </article>
     """
   end
