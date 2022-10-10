@@ -211,6 +211,12 @@ main {
   z-index: 1;
 }
 
+.SiteHeader a,
+.SiteHeader a:visited {
+  color: var(--oro);
+  text-decoration: none;
+}
+
 @media only screen and (max-width: 768px) {
   .SiteHeader {
     padding: calc(var(--aria4x) * 2) var(--aria2x);
@@ -733,5 +739,14 @@ h2 {
 
   .Episodes {
     grid-template-columns: repeat(1, 1fr);
+  }
+
+  .GuessEpisode .Episode {
+    flex: 0 0 100%;
+    margin-bottom: var(--aria);
+  }
+
+  .GuessEpisode .KillerChooser {
+    flex: 0 0 100%;
   }
 }
