@@ -1,6 +1,6 @@
 defmodule Msw.Seeds do
-  @root_dir File.cwd!()
-  @data_dir Path.join(@root_dir, "priv/data")
+  @moduledoc false
+
   @seeds [
     {"seasons", "id, number, external_id, inserted_at, updated_at"},
     {"episodes",
@@ -9,7 +9,7 @@ defmodule Msw.Seeds do
   ]
 
   defp load({table, columns}) do
-    file = Path.join(@data_dir, "#{table}.csv")
+    file = :code.priv_dir(:msw) |> Path.join("data") |> Path.join("#{table}.csv")
     Msw.Repo.query!("COPY #{table} (#{columns}) FROM '#{file}' WITH (FORMAT csv, HEADER True)")
   end
 
