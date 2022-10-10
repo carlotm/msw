@@ -3,7 +3,7 @@ defmodule Msw.Schemas.Episode do
 
   use Ecto.Schema
   import Ecto.Changeset
-  alias MSW.Schemas.Season
+  alias Msw.Schemas.Season
 
   @required_fields [:external_id, :number, :title, :plot, :poster]
 

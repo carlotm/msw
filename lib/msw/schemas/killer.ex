@@ -3,11 +3,11 @@ defmodule Msw.Schemas.Killer do
 
   use Ecto.Schema
   import Ecto.Changeset
-  alias MSW.Schemas.Episode
+  alias Msw.Schemas.Episode
 
   @required_fields [:name, :picture, :picture64]
 
-  schema "episodes" do
+  schema "killers" do
     field :name, :string
     field :picture, :string
     field :picture64, :string

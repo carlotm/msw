@@ -1,0 +1,10 @@
+<section class="Episodes">
+  <%= for episode <- @all_episodes do %>
+    <.live_component
+      module={UI.EpisodeCard}
+      id={episode.id}
+      episode={episode}
+      killer={@killer}
+    />
+  <% end %>
+</section>

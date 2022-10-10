@@ -74,6 +74,8 @@ defmodule MswWeb do
       import Plug.Conn
       import Phoenix.Controller
       import Phoenix.LiveView.Router
+
+      alias MswWeb.UI
     end
   end
 
@@ -98,6 +100,7 @@ defmodule MswWeb do
       import MswWeb.ErrorHelpers
       import MswWeb.Gettext
       alias MswWeb.Router.Helpers, as: Routes
+      alias MswWeb.UI
     end
   end
 
