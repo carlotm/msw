@@ -573,6 +573,31 @@ h2 {
   }
 }
 
+.MainMenu {
+  margin: var(--aria3x) auto;
+  max-width: 400px;
+  width: 100%;
+}
+
+.MainMenu a {
+  background-color: var(--asfalto-dd);
+  border-radius: 4px;
+  color: var(--white);
+  display: block;
+  font-size: 1.2rem;
+  text-decoration: none;
+  text-align: center;
+  padding: var(--aria) var(--aria2x);
+}
+
+.MainMenu a + a {
+  margin-top: var(--aria);
+}
+.MainMenu a:last-of-type {
+  background-color: var(--oro);
+  color: var(--asfalto-dd);
+}
+
 @media only screen and (max-width: 1200px) {
   .Episodes {
     grid-template-columns: repeat(3, 1fr);
@@ -586,6 +611,14 @@ h2 {
 }
 
 @media only screen and (max-width: 768px) {
+  .SiteHeader h1 {
+    font-size: 2rem;
+  }
+
+  .SiteHeader h2 {
+    font-size: 1.4rem;
+  }
+
   .Episodes {
     grid-template-columns: repeat(1, 1fr);
   }

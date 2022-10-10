@@ -13,6 +13,7 @@ defmodule MswWeb.Router do
   scope "/", MswWeb do
     pipe_through :browser
 
+    get "/", PageController, :index
     live "/episodes", EpisodesLive
   end
 end
