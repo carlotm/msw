@@ -1,5 +1,14 @@
+<.live_component
+  module={UI.Filters}
+  id="filters"
+  seasons={@all_seasons}
+  selected_seasons={Keyword.get(@filters, :seasons)}
+  q={Keyword.get(@filters, :q)}
+  loading={@loading}
+/>
+
 <section class="Episodes">
-  <%= for episode <- @all_episodes do %>
+  <%= for episode <- @filtered do %>
     <.live_component
       module={UI.EpisodeCard}
       id={episode.id}

@@ -486,91 +486,92 @@ h2 {
   color: var(--oro-l);
 }
 
-/* .Filters { */
-/*   margin: 0 auto; */
-/*   max-width: 600px; */
-/*   padding: 30px 20px 40px; */
-/*   width: 100%; */
-/*   position: relative; */
-/* } */
-/* .Filters h3, */
-/* .Filters label { */
-/*   display: block; */
-/*   color: var(--white); */
-/*   flex: 1 0 100%; */
-/*   font-size: 14px; */
-/*   font-weight: bold; */
-/*   letter-spacing: 1px; */
-/*   margin-bottom: var(--aria); */
-/*   text-transform: uppercase; */
-/* } */
-/* .Filters-filter { */
-/*   display: flex; */
-/*   flex-wrap: wrap; */
-/* } */
-/* .Filters-filter--checks { */
-/*   margin-left: calc((var(--aria) / 2) * -1); */
-/*   width: calc(100% + var(--aria)); */
-/* } */
-/* .Filters-filter--checks > h3 { */
-/*   padding-left: calc(var(--aria) / 2); */
-/* } */
-/* .Filters-filter + .Filters-filter { */
-/*   margin-top: var(--aria2x); */
-/* } */
-/* .Filters-filter [type="checkbox"] { */
-/*   display: none; */
-/* } */
-/* .Filters-filter [type="checkbox"]:checked + label { */
-/*   background-color: var(--oro); */
-/*   box-shadow: 0 0 0 0 transparent; */
-/*   color: var(--asfalto); */
-/* } */
-/* .Filters-filter [type="checkbox"]:checked + label:hover { */
-/*   background-color: var(--oro-l); */
-/* } */
-/* .Filters-filter [type="checkbox"] + label { */
-/*   background-color: var(--asfalto-d); */
-/*   border-radius: 4px; */
-/*   box-shadow: inset 2px 2px 3px rgba(0, 0, 0, 0.4); */
-/*   color: var(--white-d); */
-/*   cursor: pointer; */
-/*   display: block; */
-/*   font-weight: bold; */
-/*   padding: var(--aria); */
-/*   text-align: center; */
-/*   transition: background-color 0.1s, box-shadow 0.2s; */
-/*   flex: 1 1 auto; */
-/*   margin-left: calc(var(--aria) / 2); */
-/*   margin-right: calc(var(--aria) / 2); */
-/* } */
-/* .Spinner { */
-/*   height: calc(var(--aria4x) + 32px + var(--aria4x)); */
-/*   position: absolute; */
-/*   width: 100%; */
-/*   left: 0; */
-/*   z-index: 2; */
-/* } */
-/* .Spinner::before { */
-/*   animation: rotate 0.8s infinite linear; */
-/*   border: 8px solid #fff; */
-/*   border-radius: 50%; */
-/*   border-right-color: transparent; */
-/*   content: ""; */
-/*   display: block; */
-/*   height: 32px; */
-/*   margin: var(--aria4x) auto; */
-/*   position: relative; */
-/*   width: 32px; */
-/* } */
-/* @keyframes rotate { */
-/*   0% { */
-/*     transform: rotate(0deg); */
-/*   } */
-/*   100% { */
-/*     transform: rotate(360deg); */
-/*   } */
-/* } */
+.Filters {
+  margin: 0 auto;
+  max-width: 600px;
+  padding: 30px 20px 40px;
+  width: 100%;
+  position: relative;
+}
+
+.Filters h3,
+.Filters label {
+  display: block;
+  color: var(--white);
+  flex: 1 0 100%;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  margin-bottom: var(--aria);
+}
+
+.Filters-filter {
+  display: flex;
+  flex-wrap: wrap;
+}
+.Filters-filter--checks {
+  margin-left: calc((var(--aria) / 2) * -1);
+  width: calc(100% + var(--aria));
+}
+.Filters-filter--checks > h3 {
+  padding-left: calc(var(--aria) / 2);
+}
+.Filters-filter + .Filters-filter {
+  margin-top: var(--aria2x);
+}
+.Filters-filter [type="checkbox"] {
+  display: none;
+}
+.Filters-filter [type="checkbox"]:checked + label {
+  background-color: var(--oro);
+  box-shadow: 0 0 0 0 transparent;
+  color: var(--asfalto);
+}
+.Filters-filter [type="checkbox"]:checked + label:hover {
+  background-color: var(--oro-l);
+}
+.Filters-filter [type="checkbox"] + label {
+  background-color: var(--asfalto-d);
+  border-radius: 4px;
+  box-shadow: inset 2px 2px 3px rgba(0, 0, 0, 0.4);
+  color: var(--white-d);
+  cursor: pointer;
+  display: block;
+  font-weight: bold;
+  padding: var(--aria);
+  text-align: center;
+  transition: background-color 0.1s, box-shadow 0.2s;
+  flex: 1 1 auto;
+  margin-left: calc(var(--aria) / 2);
+  margin-right: calc(var(--aria) / 2);
+}
+.Spinner {
+  height: calc(var(--aria4x) + 32px + var(--aria4x));
+  position: absolute;
+  width: 100%;
+  left: 0;
+  z-index: 2;
+}
+.Spinner::before {
+  animation: rotate 0.8s infinite linear;
+  border: 8px solid #fff;
+  border-radius: 50%;
+  border-right-color: transparent;
+  content: "";
+  display: block;
+  height: 32px;
+  margin: var(--aria4x) auto;
+  position: relative;
+  width: 32px;
+}
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 
 @media only screen and (max-width: 1200px) {
   .Episodes {

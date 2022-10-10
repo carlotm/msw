@@ -32,4 +32,21 @@ defmodule Msw.Episodes do
     )
     |> Repo.one()
   end
+
+  def filter_episodes(episodes, q: q, seasons: seasons) do
+    episodes
+    |> filter_by_title(q)
+    |> filter_by_seasons(seasons)
+  end
+
+  defp filter_by_title(episodes, q) do
+    cleaned_title = q |> String.trim() |> String.downcase()
+    Enum.filter(episodes, fn episode -> String.downcase(episode.title) =~ cleaned_title end)
+  end
+
+  defp filter_by_seasons(episodes, [""]), do: episodes
+
+  defp filter_by_seasons(episodes, seasons) when is_list(seasons) do
+    Enum.filter(episodes, fn e -> "#{e.season.number}" in seasons end)
+  end
 end
