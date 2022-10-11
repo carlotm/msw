@@ -17,5 +17,7 @@
     <p class="GuessEpisode-study">
       <%= link "Browse the episodes", to: Routes.live_path(MswWeb.Endpoint, MswWeb.EpisodesLive) %>
     </p>
+  <% else %>
+    <div class="Spinner" />
   <% end %>
 </section>
