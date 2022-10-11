@@ -625,6 +625,16 @@ h2 {
   flex: 0 0 calc(50% - var(--aria));
 }
 
+.GuessEpisode-study {
+  color: var(--white);
+  text-align: center;
+  width: 100%;
+  padding-top: var(--aria);
+}
+
+.GuessEpisode-study a {
+  color: var(--white);
+}
 .GuessEpisode .KillerChooser {
   flex: 0 0 50%;
   margin-left: auto;
@@ -680,6 +690,14 @@ h2 {
   height: 100%;
   overflow: hidden;
   border-radius: 8px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+}
+
+.KillerChooser-panel[data-active] {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .KillerChooser-panel img {

@@ -4,18 +4,22 @@ defmodule MswWeb.GuessLive do
   alias Msw.{Episodes, Killers}
 
   def mount(_params, _session, socket) do
+    case connected?(socket) do
+      true -> {:ok, assign(socket, random_episode_and_killers())}
+      false -> {:ok, assign(socket, episode: nil)}
+    end
+  end
+
+  defp random_episode_and_killers() do
     episode = Episodes.random()
     killer = Killers.killer_of(episode)
 
-    socket =
-      assign(socket,
-        episode: episode,
-        killers: (Killers.random(3) ++ [killer]) |> Enum.shuffle(),
-        revealable: false,
-        guess: nil
-      )
-
-    {:ok, socket}
+    [
+      episode: episode,
+      killers: (Killers.random(3) ++ [killer]) |> Enum.shuffle(),
+      revealable: false,
+      guess: nil
+    ]
   end
 
   def handle_event("guessed", %{"guessed" => kid, "episode" => eid}, socket) do
@@ -23,7 +27,11 @@ defmodule MswWeb.GuessLive do
     {:noreply, assign(socket, :guess, "#{guessed.episode_id}" == eid)}
   end
 
-  def handle_event("again", _params, socket) do
+  def handle_event("again", %{"value" => "guess"}, socket) do
     {:noreply, assign(socket, :guess, nil)}
+  end
+
+  def handle_event("again", %{"value" => "reset"}, socket) do
+    {:noreply, assign(socket, random_episode_and_killers())}
   end
 end

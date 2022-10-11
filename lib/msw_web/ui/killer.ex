@@ -15,27 +15,25 @@ defmodule MswWeb.UI.KillerChooser do
 
     ~H"""
       <form class="KillerChooser" phx-change="guessed">
-        <%= if @guess == false do %>
-          <div class="KillerChooser-panel">
-            <img
-              src={Routes.static_path(MswWeb.Endpoint, "/images/fail.gif")}
-              alt="Wrong guess"
-            />
-            <button phx-click="again" value="again" type="button">
-              Guess again
-            </button>
-          </div>
-        <% end %>
-        <%= if @guess == true do %>
-          <div class="KillerChooser-panel">
-            <img
-              src={Routes.static_path(MswWeb.Endpoint, "/images/success.gif")}
-              alt="Correct guess"
-            />
-            <p>Bingo!</p>
-            <button type="submit">Try another episode</button>
-          </div>
-        <% end %>
+        <div class="KillerChooser-panel" data-active={@guess == false}>
+          <img
+            src={Routes.static_path(MswWeb.Endpoint, "/images/fail.gif")}
+            alt="Wrong guess"
+          />
+          <button phx-click="again" value="guess" type="button">
+            Guess again
+          </button>
+        </div>
+        <div class="KillerChooser-panel" data-active={@guess == true}>
+          <img
+            src={Routes.static_path(MswWeb.Endpoint, "/images/success.gif")}
+            alt="Correct guess"
+          />
+          <p>Bingo!</p>
+          <button phx-click="again" value="reset" type="button">
+            Try another episode
+          </button>
+        </div>
         <%= for killer <- killers do %>
           <label for={killer.dom_id}>
             <div

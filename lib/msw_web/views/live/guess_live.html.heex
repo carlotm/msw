@@ -1,16 +1,21 @@
 <section class="GuessEpisode">
-  <h3 class="GuessEpisode-title">Guess the killer of this episode!</h3>
-  <.live_component
-    module={UI.EpisodeCard}
-    id={@episode.id}
-    episode={@episode}
-    revealable={false}
-  />
-  <.live_component
-    module={UI.KillerChooser}
-    id="killer-chooser"
-    killers={@killers}
-    episode={@episode}
-    guess={@guess}
-  />
+  <%= if @episode do %>
+    <h3 class="GuessEpisode-title">Guess the killer of this episode!</h3>
+    <.live_component
+      module={UI.EpisodeCard}
+      id={@episode.id}
+      episode={@episode}
+      revealable={false}
+    />
+    <.live_component
+      module={UI.KillerChooser}
+      id="killer-chooser"
+      killers={@killers}
+      episode={@episode}
+      guess={@guess}
+    />
+    <p class="GuessEpisode-study">
+      <%= link "Browse the episodes", to: Routes.live_path(MswWeb.Endpoint, MswWeb.EpisodesLive) %>
+    </p>
+  <% end %>
 </section>
