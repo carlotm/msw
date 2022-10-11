@@ -1,4 +1,8 @@
-# Msw
+# Murder She Wrote - The Killers
+
+Finally, a website that spoils every Murder She Wrote episode killer: https://msw.fly.dev/
+
+## Local development
 
 To start your Phoenix server:
 
