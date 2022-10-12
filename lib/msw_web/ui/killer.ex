@@ -7,28 +7,27 @@ defmodule MswWeb.UI.KillerChooser do
         %{
           id: killer.id,
           dom_id: "k#{killer.id}",
-          bg_url: Routes.static_path(MswWeb.Endpoint, "/images/covers/#{killer.picture64}"),
           picture_url: "url('data:image/jpeg;base64,#{killer.picture64}')",
           name: killer.name
         }
       end)
 
+    fail_image_path = Routes.static_path(MswWeb.Endpoint, "/images/fail.gif")
+    success_image_path = Routes.static_path(MswWeb.Endpoint, "/images/success.gif")
+
+    panel_bg = %{
+      fail: [style: "background-image: url('#{fail_image_path}')"],
+      success: [style: "background-image: url('#{success_image_path}')"]
+    }
+
     ~H"""
       <form class="KillerChooser" phx-change="guessed">
-        <div class="KillerChooser-panel" data-active={@guess == false}>
-          <img
-            src={Routes.static_path(MswWeb.Endpoint, "/images/fail.gif")}
-            alt="Wrong guess"
-          />
+        <div class="KillerChooser-panel" {panel_bg.fail} data-active={@guess == false}>
           <button phx-click="again" value="guess" type="button">
             Guess again
           </button>
         </div>
-        <div class="KillerChooser-panel" data-active={@guess == true}>
-          <img
-            src={Routes.static_path(MswWeb.Endpoint, "/images/success.gif")}
-            alt="Correct guess"
-          />
+        <div class="KillerChooser-panel" {panel_bg.success} data-active={@guess == true}>
           <p>Bingo!</p>
           <button phx-click="again" value="reset" type="button">
             Try another episode
