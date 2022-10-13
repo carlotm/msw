@@ -500,8 +500,17 @@ h2 {
   position: relative;
 }
 
-.Filters h3,
-.Filters label {
+.Filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: calc(var(--aria) / 2);
+}
+
+.Filter + .Filter {
+  margin-top: var(--aria2x);
+}
+
+.Filter-name {
   display: block;
   color: var(--white);
   flex: 1 0 100%;
@@ -511,32 +520,21 @@ h2 {
   margin-bottom: var(--aria);
 }
 
-.Filters-filter {
-  display: flex;
-  flex-wrap: wrap;
-}
-.Filters-filter--checks {
-  margin-left: calc((var(--aria) / 2) * -1);
-  width: calc(100% + var(--aria));
-}
-.Filters-filter--checks > h3 {
-  padding-left: calc(var(--aria) / 2);
-}
-.Filters-filter + .Filters-filter {
-  margin-top: var(--aria2x);
-}
-.Filters-filter [type="checkbox"] {
+.Filter [type="checkbox"] {
   display: none;
 }
-.Filters-filter [type="checkbox"]:checked + label {
+
+.Filter [type="checkbox"]:checked + label {
   background-color: var(--oro);
   box-shadow: 0 0 0 0 transparent;
   color: var(--asfalto);
 }
-.Filters-filter [type="checkbox"]:checked + label:hover {
+
+.Filter [type="checkbox"]:checked + label:hover {
   background-color: var(--oro-l);
 }
-.Filters-filter [type="checkbox"] + label {
+
+.Filter [type="checkbox"] + label {
   background-color: var(--asfalto-d);
   border-radius: 4px;
   box-shadow: inset 2px 2px 3px rgba(0, 0, 0, 0.4);
@@ -548,9 +546,8 @@ h2 {
   text-align: center;
   transition: background-color 0.1s, box-shadow 0.2s;
   flex: 1 1 auto;
-  margin-left: calc(var(--aria) / 2);
-  margin-right: calc(var(--aria) / 2);
 }
+
 .Spinner {
   height: calc(var(--aria4x) + 32px + var(--aria4x));
   position: absolute;
